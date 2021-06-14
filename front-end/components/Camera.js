@@ -20,7 +20,7 @@ class Cam extends React.Component {
         type: Camera.Constants.Type.back,
         data : {},
         loading : false,
-        flash : "off",
+        flash : "on",
         lastpress: new Date().getTime(),
     }
 
@@ -58,7 +58,8 @@ class Cam extends React.Component {
     predict_with_flash = async (event) => {
         var delta = new Date().getTime() - this.state.lastPress;
         if(delta < 200) {
-           this.setState({...this.state,flash : (this.state == "on")? "off" : "on"});
+           await this.setState({...this.state,flash: (this.state.flash === 'off') ? 'on' : 'off'});
+           console.log(this.state.flash);
         }
         this.setState({
             ...this.state,
