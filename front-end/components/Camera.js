@@ -62,7 +62,7 @@ class Cam extends React.Component {
       //console.log("uploading image ...");
       var dtform = new FormData();
       dtform.append('file', { uri: manipResult.uri, name: 'picture.jpg', type: 'image/jpg' });
-      axios.post('http://b69bd6d71ca4.ngrok.io/predict/predict/predict/', dtform).then(responseData => {
+      axios.post('https://e68be20ea6e5.ngrok.io/predict/predict/predict/', dtform).then(responseData => {
           this.setState({...this.state,loading:false})
           //alert(responseData.data.result);
           if (responseData.data.result!='none'){
